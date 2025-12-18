@@ -4,7 +4,6 @@ using UnityEngine.InputSystem;
 
 public class PlayerMovement : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
     public GameObject player;
     private Rigidbody2D rb;
 
@@ -13,13 +12,8 @@ public class PlayerMovement : MonoBehaviour
         rb = player.GetComponent<Rigidbody2D>();
     }
 
-    // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown("space"))
-        {
-        
-        }
         if (Input.GetKeyDown("a"))
         {
             
@@ -28,6 +22,5 @@ public class PlayerMovement : MonoBehaviour
         {
             
         }
-        
     }
 }
