@@ -7,8 +7,10 @@ public class PlayerMovement : MonoBehaviour
 {
     public GameObject player;
     private Rigidbody2D rb;
+    private float force = 10f;
 
     Scene currentScene;
+
 
     void Start()
     {
@@ -36,7 +38,7 @@ public class PlayerMovement : MonoBehaviour
         }
         if (Input.GetKeyDown("a"))
         {
-            
+            rb.AddForceX(force);
         }
         if (Input.GetKeyDown("d"))
         {
