@@ -8,11 +8,16 @@ public class PlayerMovement : MonoBehaviour
     public GameObject player;
     private Rigidbody2D rb;
 
-    Scene currentScene = SceneManager.GetActiveScene();
+    Scene currentScene;
 
     void Start()
     {
         rb = player.GetComponent<Rigidbody2D>();
+    }
+
+    void Awake()
+    {
+        currentScene = SceneManager.GetActiveScene();
     }
 
     void Update()
