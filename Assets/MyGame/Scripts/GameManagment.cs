@@ -1,9 +1,9 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class SceneManagment : MonoBehaviour
+public class GameManagment : MonoBehaviour
 {
-    public GameObject endMenu;
+    
     public void LoadScene(string sceneName)
     {
         SceneManager.LoadScene(sceneName);
@@ -12,8 +12,5 @@ public class SceneManagment : MonoBehaviour
     {
         Application.Quit();
     }
-    public void EndMenu()
-    {
-        endMenu.SetActive(!endMenu.activeSelf);
-    }
+
 }
