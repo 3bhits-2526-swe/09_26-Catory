@@ -1,3 +1,4 @@
+using JetBrains.Annotations;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -10,11 +11,14 @@ public class PlayerMovement : MonoBehaviour
     private float force = 10f;
 
     Scene currentScene;
-
+    private GameObject[] vrObjects;
+    private GameObject[] realObjects;
 
     void Start()
     {
         rb = player.GetComponent<Rigidbody2D>();
+        vrObjects = GameObject.FindGameObjectsWithTag("VR");
+        realObjects = GameObject.FindGameObjectsWithTag("RL");
     }
 
     void Awake()
@@ -26,13 +30,27 @@ public class PlayerMovement : MonoBehaviour
     {
         if (Input.GetKeyDown("space"))
         {
-            if(currentScene.name == "Level")
+            if(vrObjects[0].activeSelf == false)
             {
-                SceneManager.LoadScene("VR");
-            }else
-            if(currentScene.name == "VR")
+                foreach (GameObject obj in vrObjects)
+                {
+                    obj.SetActive(true);
+                }
+                foreach (GameObject obj in realObjects)
+                {
+                    obj.SetActive(true);
+                }
+            }
+            else if(vrObjects[0].activeSelf == true)
             {
-                SceneManager.LoadScene("Level");
+                foreach (GameObject obj in vrObjects)
+                {
+                    obj.SetActive(false);
+                }
+                foreach (GameObject obj in realObjects)
+                {
+                    obj.SetActive(false);
+                }
             }
         }
     }
