@@ -8,7 +8,7 @@ public class PlayerMovement : MonoBehaviour
 {
     public GameObject player;
     private Rigidbody2D rb;
-    private float force = 10f;
+    private float force = 50f;
 
     Scene currentScene;
     private GameObject[] vrObjects;
