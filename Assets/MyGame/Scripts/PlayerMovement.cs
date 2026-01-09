@@ -34,15 +34,19 @@ public class PlayerMovement : MonoBehaviour
             {
                 SceneManager.LoadScene("Level");
             }
-
-        }
-        if (Input.GetKeyDown("a"))
-        {
-            rb.AddForceX(force);
-        }
-        if (Input.GetKeyDown("d"))
-        {
-            
         }
     }
+
+    void FixedUpdate()
+    {
+        if (Input.GetKey("a"))
+        {
+            rb.AddForce(new Vector2(-force, 0f));
+        }
+        if (Input.GetKey("d"))
+        {
+            rb.AddForce(new Vector2(force, 0f));
+        }
+    }
+    
 }
