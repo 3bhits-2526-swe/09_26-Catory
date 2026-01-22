@@ -65,6 +65,6 @@ public class PlayerMovement : MonoBehaviour
         {
             tf.Translate(new Vector2(0f, -force));
         }
-    }
+    }    
     
 }
