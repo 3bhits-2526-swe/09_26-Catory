@@ -7,7 +7,7 @@ using UnityEngine.SceneManagement;
 public class PlayerMovement : MonoBehaviour
 {
     public GameObject player;
-    private Rigidbody2D rb;
+    private Transform tf;
     private float force = 50f;
 
     Scene currentScene;
@@ -16,7 +16,7 @@ public class PlayerMovement : MonoBehaviour
 
     void Start()
     {
-        rb = player.GetComponent<Rigidbody2D>();
+        tf = player.GetComponent<Transform>();
         vrObjects = GameObject.FindGameObjectsWithTag("VR");
         realObjects = GameObject.FindGameObjectsWithTag("RL");
     }
@@ -59,11 +59,11 @@ public class PlayerMovement : MonoBehaviour
     {
         if (Input.GetKey("a"))
         {
-            rb.AddForce(new Vector2(-force, 0f));
+            tf.Translate(new Vector2(-force, 0f));
         }
         if (Input.GetKey("d"))
         {
-            rb.AddForce(new Vector2(force, 0f));
+            tf.Translate(new Vector2(force, 0f));
         }
     }
     
