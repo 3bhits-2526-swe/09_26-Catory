@@ -3,14 +3,15 @@ using JetBrains.Annotations;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace Battary
+namespace Battery
 {
-    public class Battary : MonoBehaviour
+    public class Battery : MonoBehaviour
     {
+        private Image batteryImg;
+        public float startZeit;
+
         void Start()
         {
-            private Image battaryImg;
-            public float startZeit;
         }
 
         void Update()
