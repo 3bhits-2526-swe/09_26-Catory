@@ -11,14 +11,12 @@ public class PlayerMovement : MonoBehaviour
     public float force = 1f;
 
     Scene currentScene;
-    private GameObject[] vrObjects;
-    private GameObject[] realObjects;
+
 
     void Start()
     {
         tf = player.GetComponent<Transform>();
-        vrObjects = GameObject.FindGameObjectsWithTag("VR");
-        realObjects = GameObject.FindGameObjectsWithTag("RL");
+        
     }
 
     void Awake()
@@ -28,31 +26,7 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown("space"))
-        {
-            if(vrObjects[0].activeSelf == false)
-            {
-                foreach (GameObject obj in vrObjects)
-                {
-                    obj.SetActive(true);
-                }
-                foreach (GameObject obj in realObjects)
-                {
-                    obj.SetActive(true);
-                }
-            }
-            else if(vrObjects[0].activeSelf == true)
-            {
-                foreach (GameObject obj in vrObjects)
-                {
-                    obj.SetActive(false);
-                }
-                foreach (GameObject obj in realObjects)
-                {
-                    obj.SetActive(false);
-                }
-            }
-        }
+        
     }
 
     void FixedUpdate()

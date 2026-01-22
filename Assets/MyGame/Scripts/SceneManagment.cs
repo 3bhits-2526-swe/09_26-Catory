@@ -8,14 +8,26 @@ public class SceneManagment : MonoBehaviour
     public GameObject pauseMenu;
     public GameObject player;
 
+    private GameObject[] vrObjects;
+    private GameObject[] realObjects;
+
     void Start()
     {
+        vrObjects = GameObject.FindGameObjectsWithTag("VR");
+        realObjects = GameObject.FindGameObjectsWithTag("RL");
+        foreach (GameObject obj in vrObjects)
+        {
+            obj.SetActive(false);
+        }
+
+
         endMenu.SetActive(false);
         pauseMenu.SetActive(false);
     }
     void Update()
     {
         PauseMenu();
+        ToggleVR();
     }
 
     public void LoadScene(string sceneName)
@@ -48,5 +60,40 @@ public class SceneManagment : MonoBehaviour
         
         
 
+    }
+
+    public void Resume()
+    {
+        pauseMenu.SetActive(false);
+        endMenu.SetActive(false);
+    }
+
+    public void ToggleVR()
+    {
+        if (Input.GetKeyDown("space"))
+        {
+            if(vrObjects[0].activeSelf == false)
+            {
+                foreach (GameObject obj in vrObjects)
+                {
+                    obj.SetActive(true);
+                }
+                foreach (GameObject obj in realObjects)
+                {
+                    obj.SetActive(false);
+                }
+            }
+            else if(vrObjects[0].activeSelf == true)
+            {
+                foreach (GameObject obj in vrObjects)
+                {
+                    obj.SetActive(false);
+                }
+                foreach (GameObject obj in realObjects)
+                {
+                    obj.SetActive(true);
+                }
+            }
+        }
     }
 }
