@@ -16,7 +16,6 @@ public class SceneManagment : MonoBehaviour
     void Update()
     {
         PauseMenu();
-        EndMenu();
     }
 
     public void LoadScene(string sceneName)
