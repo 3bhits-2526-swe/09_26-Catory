@@ -8,7 +8,7 @@ public class PlayerMovement : MonoBehaviour
 {
     public GameObject player;
     private Transform tf;
-    private float force = 50f;
+    public float force = 5f;
 
     Scene currentScene;
     private GameObject[] vrObjects;
@@ -59,11 +59,11 @@ public class PlayerMovement : MonoBehaviour
     {
         if (Input.GetKey("a"))
         {
-            tf.Translate(new Vector2(-force, 0f));
+            tf.Translate(new Vector2(0f, -force));
         }
         if (Input.GetKey("d"))
         {
-            tf.Translate(new Vector2(force, 0f));
+            tf.Translate(new Vector2(0f, force));
         }
     }
     
