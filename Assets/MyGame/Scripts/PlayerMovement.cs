@@ -9,9 +9,7 @@ public class PlayerMovement : MonoBehaviour
     public GameObject player;
     private Transform tf;
     public float force = 1f;
-
     Scene currentScene;
-
 
     void Start()
     {
