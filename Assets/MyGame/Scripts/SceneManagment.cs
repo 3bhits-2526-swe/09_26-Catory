@@ -15,6 +15,7 @@ public class SceneManagment : MonoBehaviour
     {
         vrObjects = GameObject.FindGameObjectsWithTag("VR");
         realObjects = GameObject.FindGameObjectsWithTag("RL");
+        pauseMenu = GameObject.Find("PauseMenu");
         foreach (GameObject obj in vrObjects)
         {
             obj.SetActive(false);
